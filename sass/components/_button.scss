@@ -1,0 +1,13 @@
+.btn {
+  text-transform: uppercase;
+  padding: 0.9rem 2.2rem;
+  font-size: 1.5rem;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  outline: none;
+  text-transform: uppercase;
+  border-radius: 2px;
+  @include shadow-default;
+}

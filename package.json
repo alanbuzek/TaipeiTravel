@@ -1,0 +1,38 @@
+{
+  "name": "TaipeiTravel",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.18.0",
+    "background-image-on-load": "^0.1.6",
+    "geolib": "^2.0.24",
+    "google-map-react": "^1.1.2",
+    "lodash": "^4.17.11",
+    "node-sass": "^4.10.0",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.1"
+  },
+  "scripts": {
+    "watch:sass": "node-sass sass/main.scss public/style.css -w",
+    "devserver": "live-server",
+    "compile:sass": "node-sass sass/main.scss public/style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' public/style.comp.css -o public/style.prefix.css",
+    "compress:css": "node-sass public/style.prefix.css public/style.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

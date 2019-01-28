@@ -1,0 +1,119 @@
+.header {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 1rem solid #fff; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: 0; /* Adjust as needed */
+  animation: typing 1.5s steps(30, end), blink-caret 0.75s step-end infinite;
+  animation-fill-mode: forwards;
+  font-size: 9.5rem;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 500;
+  width: 0ch;
+  .span {
+    position: relative;
+    cursor: pointer;
+    color: green !important;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      height: 100%;
+      width: 1rem;
+      background-color: green;
+    }
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  @media only screen and (max-width: 550px) {
+    font-size: 8.5rem;
+  }
+  @media only screen and (max-width: 450px) {
+    font-size: 7rem;
+  }
+
+  &--second {
+    font-size: 7.5rem;
+    text-transform: none;
+    animation: typing2 3s steps(35, end), blink-caret 0.75s step-end infinite;
+    width: 22.5ch;
+
+    @media only screen and (max-width: 850px) {
+      font-size: 6rem;
+    }
+    @media only screen and (max-width: 550px) {
+      font-size: 5rem;
+    }
+    @media only screen and (max-width: 450px) {
+      font-size: 4rem;
+    }
+  }
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 14ch;
+  }
+}
+
+@keyframes typing2 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 22ch;
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #fff;
+  }
+}
+
+.active {
+  transition: all 0.4s cubic-bezier(0, 0, 0.23, 1);
+  background-position: 0%;
+}
+span {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  .active {
+    transition: all 0.4s cubic-bezier(0, 0, 0.23, 1);
+    background-position: 0%;
+  }
+  &:hover {
+    transition: all 0.4s cubic-bezier(0, 0, 0.23, 1);
+    background-position: 0%;
+  }
+}
+.span1 {
+  background-image: linear-gradient(to right, orange, orange 50%, white 50%);
+}
+.span2 {
+  background-image: linear-gradient(to right, red, red 50%, white 50%);
+}
+.span3 {
+  background-image: linear-gradient(to right, blue, blue 50%, white 50%);
+}

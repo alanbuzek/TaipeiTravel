@@ -1,0 +1,51 @@
+@keyframes type {
+  0% {
+    width: 0ch;
+  }
+  100% {
+    width: $number-chars;
+  }
+}
+
+@keyframes type2 {
+  0% {
+    width: 0ch;
+  }
+  100% {
+    width: 32ch;
+  }
+}
+
+@keyframes cursor {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes slideInUp2 {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}

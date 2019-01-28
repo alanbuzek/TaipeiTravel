@@ -1,0 +1,43 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+a:link,
+a:visited,
+a:hover {
+  text-decoration: none !important;
+}
+html {
+  font-size: 62.5%;
+  font-family: 'Proxima Nova';
+  font-weight: 400;
+  box-sizing: border-box;
+  @media only screen and (max-width: 1520px) {
+    font-size: 58%;
+  }
+  @media only screen and (max-width: 1200px) {
+    font-size: 57%;
+  }
+
+  @media only screen and (max-width: 1150px) {
+    font-size: 52.5%;
+  }
+
+  @media only screen and (max-width: 1050px) {
+    font-size: 45%;
+  }
+
+  @media only screen and (max-width: 900px) {
+    font-size: 40%;
+  }
+
+  @media only screen and (max-width: 800px) {
+    font-size: 37.5%;
+  }
+  @media only screen and (max-width: 550px) {
+    font-size: 32.5%;
+  }
+}
