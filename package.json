@@ -17,7 +17,7 @@
     "watch:sass": "node-sass sass/main.scss public/style.css -w",
     "devserver": "live-server",
     "compile:sass": "node-sass sass/main.scss public/style.comp.css",
-    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' public/style.comp.css -o public/style.prefix.css",
+    "prefix:css": "postcss --use autoprefixer -b \"last 10 versions\" public/style.comp.css -o public/style.prefix.css",
     "compress:css": "node-sass public/style.prefix.css public/style.css --output-style compressed",
     "build:css": "npm-run-all compile:sass prefix:css compress:css",
     "start": "react-scripts start",
@@ -33,5 +33,11 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "autoprefixer": "^9.5.1",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^7.0.14",
+    "postcss-cli": "^6.1.2"
+  }
 }
