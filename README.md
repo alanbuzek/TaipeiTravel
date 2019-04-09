@@ -14,4 +14,4 @@ Integrating Google Maps Javascript, Eventful.com public API, geolib for calculat
 
 ## Future plans
 
-Integrating Google Places API for showing hotels, restaurants and sights on a map and then ability to display details when clicking the point on the map.
+Integrating Google Places API for showing hotels, restaurants and sights on a map and then ability to display details when clicking the point on this map.
