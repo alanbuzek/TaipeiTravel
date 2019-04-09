@@ -30,6 +30,7 @@ class EventPage extends React.Component {
       { enableHighAccuracy: true }
     );
   }
+
   componentWillUnmount() {
     document.querySelector('html').style.overflow = 'hidden';
   }
@@ -70,7 +71,15 @@ class EventPage extends React.Component {
   renderEvents = () => {
     if (this.state.loaded) {
       return this.state.events.map((event, index) => {
-        return <Event id={`event-${index}`} event={event} toggleMap={this.toggleMap} position={this.state.position} />;
+        return (
+          <Event
+            id={`event-${index}`}
+            key={'event-' + index}
+            event={event}
+            toggleMap={this.toggleMap}
+            position={this.state.position}
+          />
+        );
       });
     } else {
       // events not fetched yet, show loader

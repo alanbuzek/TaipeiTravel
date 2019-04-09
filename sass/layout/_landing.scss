@@ -1,5 +1,5 @@
 .landing {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(img/hero-main.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(img/hero-big.jpg);
   background-position: right;
   background-repeat: no-repeat;
   height: 100vh;
@@ -9,9 +9,6 @@
   justify-content: space-between;
 
   // account for different screen sizes and serve appropriate version of image
-  @media only screen and (min-width: 2000px) {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(img/hero-big.jpg);
-  }
   @media only screen and (max-width: 1200px) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(img/hero-medium.jpg);
   }
