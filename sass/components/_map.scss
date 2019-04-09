@@ -4,8 +4,7 @@
   width: 100vw;
   z-index: 10000;
   display: flex;
-  background-color: rgba(black, 0.65);
-  // animation: slideInUp2 1s ease-in-out;
+  background-color: rgba(black, 0.4);
   &--container {
     @include shadow-5;
     margin: auto;
@@ -57,5 +56,25 @@
       position: absolute;
       display: inline-block;
     }
+  }
+}
+
+.x-icon {
+  position: absolute;
+  top: 0.5rem;
+  color: rgba(white, 0.35);
+  font-size: 4rem;
+  z-index: 10000;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  width: 4rem;
+  &:hover {
+    color: rgba(white, 0.9);
+  }
+  &--main {
+    left: 0.5rem;
+  }
+  &--map {
+    right: 0.5rem !important;
   }
 }

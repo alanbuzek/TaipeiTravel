@@ -1,30 +1,27 @@
-.x-icon {
-  position: absolute;
-  top: 0.5rem;
-  left: 0.5rem;
-  color: rgba(white, 0.35);
-  font-size: 4.5rem;
-  z-index: 10000;
-  transition: all 0.4s ease;
-  cursor: pointer;
-  &:hover {
-    color: rgba(white, 0.9);
-  }
-}
-
 .events {
   // element containing the events page
   position: relative;
   display: block !important;
   height: fit-content !important;
-
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/hero-medium.jpg) !important;
+  @media only screen and (min-width: 1800px) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/hero-big.jpg);
+  }
+  @media only screen and (max-width: 900px) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/hero-small.jpg);
+  }
+  @media only screen and (max-width: 768px) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/hero-tiny.jpg);
+  }
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
   &__container {
-    overflow: hidden;
     display: grid;
     grid-template-columns: 1.05fr 1.15fr 1.1fr; // container of all events
-    grid-gap: 1.5rem;
-    padding: 3rem;
-    height: 100vh;
+    grid-gap: 2rem;
+    padding: 5rem;
+    height: 100%;
     @media only screen and (max-width: 1200px) {
       padding: 5rem 2rem;
       grid-gap: 2rem;
@@ -47,11 +44,7 @@
     .event {
       @include shadow-3;
       color: white;
-      background-image: linear-gradient(
-        to right bottom,
-        rgba(90, 90, 90, 0.8),
-        rgba(150, 150, 150, 0.8)
-      );
+      background-color: rgba(white, 0.2);
       border-radius: 2rem;
       display: flex;
       overflow: hidden;
@@ -67,13 +60,14 @@
           }
         }
       }
+
       &__text {
-        // cotaining everything beside the img
+        // containing everything beside the img
         flex: 1;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-        padding: 1rem;
+        padding: 1.5rem;
         & > *:not(last-child) {
           flex: 0 0 50%;
           display: flex;
@@ -84,48 +78,48 @@
         }
         &--title-normal {
           // default title size
-          font-size: 1.8rem;
+          font-size: 1.6rem;
           // @media only screen and (max-width: 1440px) {
           //   font-size: 1.5rem;
           // }
           @media only screen and (max-width: 1050px) {
-            font-size: 2.5rem;
+            font-size: 2.3rem;
           }
           @media only screen and (max-width: 700px) {
-            font-size: 2.2rem;
+            font-size: 2rem;
           }
           @media only screen and (max-width: 500px) {
-            font-size: 2.7rem;
+            font-size: 2.5rem;
           }
         }
         &--title-med {
           // if text short, bigger title
-          font-size: 2.3rem;
+          font-size: 2.1rem;
           @media only screen and (max-width: 1050px) {
-            font-size: 2.7rem;
+            font-size: 2.5rem;
           }
           @media only screen and (max-width: 700px) {
-            font-size: 2.2rem;
+            font-size: 2rem;
           }
           @media only screen and (max-width: 500px) {
-            font-size: 2.9rem;
+            font-size: 2.7rem;
           }
         }
         &--title-big {
           // if text short, bigger title
-          font-size: 2.6rem;
+          font-size: 2.4rem;
           @media only screen and (max-width: 1050px) {
-            font-size: 3rem;
+            font-size: 2.8rem;
           }
           @media only screen and (max-width: 500px) {
-            font-size: 3.2rem;
+            font-size: 3rem;
           }
         }
         &--title-huge {
           // if text shorter, biggest title
-          font-size: 3.4rem;
+          font-size: 3rem;
           @media only screen and (max-width: 1050px) {
-            font-size: 4rem;
+            font-size: 3.6rem;
           }
         }
         &--maps {
@@ -134,7 +128,7 @@
           align-items: center;
           justify-content: flex-start;
           flex: 0 0 50%;
-
+          margin-top: 0.5rem;
           .icon {
             // for icons of buttons
             font-size: 1.7rem;

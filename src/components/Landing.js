@@ -1,27 +1,47 @@
 import React from 'react';
-import BackgroundImageOnLoad from 'background-image-on-load';
 
 import Header from './Header';
 import Container from './Container';
+import Modal from './Modal';
 
 // secret id predict hq events - sLrOPcxcePr3FfYIwbJ85Mn6SOudl3Ah9n8gU0gm
 // access token - sLeAjQa7C9Vs7JJcieTVkcXmyGNcCE
 
 //Eventful api key - LTXCgLrsCkpsNSWP
 class Landing extends React.Component {
-  state = { loaded: false };
+  state = { loaded: false, modalSection: '', modalActive: false };
 
-  finishLoad = () => {
-    this.setState({ loaded: true });
+  componentDidMount() {
+    let stateCheck = setInterval(() => {
+      // check for image load -> initiate animation
+      if (document.readyState === 'complete') {
+        clearInterval(stateCheck);
+        this.setState({ loaded: true });
+      }
+    }, 100);
+    document.querySelector('html').style.overflow = 'hidden';
+  }
+
+  toggleModal = (open, section) => {
+    if (open) {
+      this.setState({ modalActive: true, modalSection: section });
+    } else {
+      this.setState({ modalActive: false });
+    }
   };
+
+  renderModal() {
+    if (this.state.modalActive) {
+      return <Modal modalSection={this.state.modalSection} toggleModal={this.toggleModal} />;
+    }
+  }
 
   renderPage = () => {
     if (this.state.loaded) {
       return (
         <React.Fragment>
-          <Container type={1} />
-          <Header finishLoad={this.finishLoad} />
-          <Container type={2} />
+          <Header />
+          <Container toggleModal={this.toggleModal} />
         </React.Fragment>
       );
     } else {
@@ -37,17 +57,8 @@ class Landing extends React.Component {
   render() {
     return (
       <div className="landing">
-        <BackgroundImageOnLoad
-          src={'https://unsplash.it/1200/310?random'}
-          onLoadBg={() => {
-            console.log('loaded');
-            this.setState({
-              loaded: true
-            });
-          }}
-          onError={err => console.log('error', err)}
-        />
         {this.renderPage()}
+        {this.renderModal()}
       </div>
     );
   }

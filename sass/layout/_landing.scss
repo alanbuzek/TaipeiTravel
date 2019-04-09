@@ -3,28 +3,22 @@
   background-position: right;
   background-repeat: no-repeat;
   height: 100vh;
-
   background-size: cover;
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  @media only screen and (max-width: 1600px) {
+
+  // account for different screen sizes and serve appropriate version of image
+  @media only screen and (min-width: 2000px) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(img/hero-big.jpg);
   }
-  // @media only screen and (max-width: 768px) {
-  //   height: 90vh;
-  // }
-  // @media only screen and (max-width: 1200px) {
-  //   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-  //     url(img/hero-medium.jpg);
-  // }
-  // @media only screen and (max-width: 900px) {
-  //   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-  //     url(img/hero-small.jpg);
-  // }
-  // @media only screen and (max-width: 768px) {
-  //   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-  //     url(img/hero-tiny.jpg);
-  // }
+  @media only screen and (max-width: 1200px) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(img/hero-medium.jpg);
+  }
+  @media only screen and (max-width: 900px) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(img/hero-small.jpg);
+  }
+  @media only screen and (max-width: 768px) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(img/hero-tiny.jpg);
+  }
 }

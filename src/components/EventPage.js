@@ -14,6 +14,7 @@ class EventPage extends React.Component {
     position: null,
     showMap: false
   };
+
   componentDidMount() {
     this.fetchEvents(); // fetches events upon mounting
     navigator.geolocation.getCurrentPosition(
@@ -29,6 +30,9 @@ class EventPage extends React.Component {
       { enableHighAccuracy: true }
     );
   }
+  componentWillUnmount() {
+    document.querySelector('html').style.overflow = 'hidden';
+  }
 
   fetchEvents = async () => {
     let results = await eventful.get(
@@ -37,12 +41,10 @@ class EventPage extends React.Component {
     const events = results.data.events.event;
     const eventsArray = [];
     events.forEach(event => {
-      if (event.image && event.description) {
-        // filter invalid events
-        eventsArray.push(event);
-      }
+      eventsArray.push(event);
     });
-    this.setState({ loaded: true, events: eventsArray.slice(0, 16) });
+    document.querySelector('html').style.overflow = 'auto';
+    this.setState({ loaded: true, events: eventsArray });
   };
 
   toggleMap = mapId => {
@@ -68,21 +70,14 @@ class EventPage extends React.Component {
   renderEvents = () => {
     if (this.state.loaded) {
       return this.state.events.map((event, index) => {
-        return (
-          <Event
-            id={`event-${index}`}
-            event={event}
-            toggleMap={this.toggleMap}
-            position={this.state.position}
-          />
-        );
+        return <Event id={`event-${index}`} event={event} toggleMap={this.toggleMap} position={this.state.position} />;
       });
     } else {
       // events not fetched yet, show loader
       return (
         <div className="loader__container">
           <div className="loader" />
-          <div className="loader__text">Fetching events...</div>
+          <div className="loader__text">Looking for events in Taipei...</div>
         </div>
       );
     }
@@ -93,7 +88,7 @@ class EventPage extends React.Component {
       <div className="padding">
         <div className={`landing ${this.state.loaded ? 'events' : ''}`}>
           <Link to="/">
-            <i className="material-icons x-icon">arrow_back</i>
+            <i className="material-icons x-icon x-icon--main">arrow_back</i>
           </Link>
           {this.renderMap()}
           <div className="events__container">{this.renderEvents()}</div>

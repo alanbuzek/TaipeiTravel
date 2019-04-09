@@ -49,3 +49,33 @@
     transform: translate(-50%, -50%);
   }
 }
+
+// The typing animation
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 14ch;
+  }
+}
+// typing animation for longer text
+@keyframes typing2 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 22ch;
+  }
+}
+
+// The typewriter cursor animation
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #fff;
+  }
+}

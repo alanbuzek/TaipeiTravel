@@ -1,11 +1,14 @@
 .header {
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: 1rem solid #fff; /* The typwriter cursor */
-  white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: 0; /* Adjust as needed */
+  // text animation attributes -----
+  overflow: hidden;
+  border-right: 1rem solid #fff; // The typwriter cursor
+  white-space: nowrap;
+  margin: 0 auto; // Gives that scrolling effect as the typing happens
+  letter-spacing: 0;
   animation: typing 1.5s steps(30, end), blink-caret 0.75s step-end infinite;
   animation-fill-mode: forwards;
+  // ---------------------------------
+
   font-size: 9.5rem;
   color: #fff;
   position: absolute;
@@ -14,11 +17,13 @@
   transform: translate(-50%, -50%);
   font-weight: 500;
   width: 0ch;
+
   .span {
     position: relative;
     cursor: pointer;
     color: green !important;
     &::after {
+      // enable nice hover animation
       content: '';
       position: absolute;
       top: 50%;
@@ -54,36 +59,6 @@
     @media only screen and (max-width: 450px) {
       font-size: 4rem;
     }
-  }
-}
-
-/* The typing effect */
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 14ch;
-  }
-}
-
-@keyframes typing2 {
-  from {
-    width: 0;
-  }
-  to {
-    width: 22ch;
-  }
-}
-
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-  from,
-  to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: #fff;
   }
 }
 

@@ -4,8 +4,6 @@ import _ from 'lodash';
 class Event extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
-
     this.state = { title: undefined, displayTime: '', showMap: false, distance: undefined };
   }
 
@@ -59,11 +57,6 @@ class Event extends React.Component {
       lat = this.props.position.latitude;
       lng = this.props.position.longitude;
     }
-    // let distance =
-    //   geolib.getDistance(
-    //     { latitude: this.props.event.latitude, longitude: this.props.event.longitude },
-    //     { latitude: lat, longitude: lng }
-    //   ) / 1000;
 
     let distance = getDistance(lat, lng, this.props.event.latitude, this.props.event.longitude);
     distance = distance.toFixed(1) + ' KM';
@@ -79,29 +72,30 @@ class Event extends React.Component {
     this.props.toggleMap(this.props.id.split('-')[1]);
   };
 
-  openEventful = () => {
-    window.open(this.props.event.url);
-  };
-
-  render() {
-    return (
-      <div
-        className="event"
-        style={{ animationDelay: `${Math.random() * 2.4}s` }}
-        key={this.state.title}
-      >
+  renderImage() {
+    if (this.props.event.image) {
+      return (
         <div className="event__img-container">
           <img src={this.props.event.image.medium.url} alt="" />
         </div>
+      );
+    }
+  }
+  render() {
+    return (
+      <div className="event" style={{ animationDelay: `${Math.random() * 2.4}s` }} key={this.state.title}>
+        {this.renderImage()}
         <div className="event__text">
           <div className={`event__text--title-${this.state.titleSize}`}>{this.state.title}</div>
           <div className="event__text--maps">
             <div className="event__text--maps-distance" onClick={this.openMap}>
               {this.state.distance} <i className="icon fas fa-location-arrow" />{' '}
             </div>
-            <div className="event__text--maps-date" onClick={this.openEventful}>
+            <div className="event__text--maps-date">
               <div className="event__text--maps-date--to-move">
-                <div className="eventful">Eventful.com</div>
+                <a className="eventful" href={this.props.event.url} rel="noopener noreferrer" target="_blank">
+                  Eventful.com
+                </a>
                 {this.state.displayTime}
                 <i className="icon fas fa-calendar" />
               </div>
@@ -116,15 +110,12 @@ class Event extends React.Component {
 export default Event;
 
 const getDistance = (lat1, lon1, lat2, lon2, unit = 'K') => {
+  // calculate distance between two coords
   var radlat1 = (Math.PI * lat1) / 180;
   var radlat2 = (Math.PI * lat2) / 180;
-  var radlon1 = (Math.PI * lon1) / 180;
-  var radlon2 = (Math.PI * lon2) / 180;
   var theta = lon1 - lon2;
   var radtheta = (Math.PI * theta) / 180;
-  var dist =
-    Math.sin(radlat1) * Math.sin(radlat2) +
-    Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+  var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
   dist = Math.acos(dist);
   dist = (dist * 180) / Math.PI;
   dist = dist * 60 * 1.1515;
@@ -134,6 +125,5 @@ const getDistance = (lat1, lon1, lat2, lon2, unit = 'K') => {
   if (unit === 'N') {
     dist = dist * 0.8684;
   }
-  console.log(dist);
   return dist;
 };

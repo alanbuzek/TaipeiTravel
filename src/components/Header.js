@@ -5,32 +5,21 @@ class Header extends React.Component {
   componentDidMount() {
     setTimeout(() => {
       this.setState({ second: true });
-      // setInterval(() => {
-      //   console.log(this.state.active);
-      //   let activeNumber;
-      //   if (this.state.active === 1) {
-      //     activeNumber = 2;
-      //   } else if (this.state.active === 2) {
-      //     activeNumber = 3;
-      //   } else {
-      //     activeNumber = 1;
-      //   }
-      //   this.setState({ active: activeNumber });
-      // }, 1500);
     }, 3500);
   }
 
   renderText = () => {
     if (this.state.second) {
+      // second text
       return (
         <React.Fragment>
-          Discover{' '}
-          <span className={`span1 ${this.state.active === 1 ? 'active' : ''}`}>places</span>,
+          Discover <span className={`span1 ${this.state.active === 1 ? 'active' : ''}`}>places</span>,
           <span className={`span2 ${this.state.active === 2 ? 'active' : ''}`}> ideas</span>,
           <span className={`span3 ${this.state.active === 3 ? 'active' : ''}`}> foods</span>...
         </React.Fragment>
       );
     } else {
+      // default text
       return <React.Fragment>Welcome to Taipei!</React.Fragment>;
     }
   };
