@@ -327,13 +327,13 @@ span {
   position: relative;
   display: block !important;
   height: fit-content !important;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/hero-medium.jpg) !important;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/hero-big.jpg) !important;
   background-size: cover;
   background-repeat: no-repeat;
   height: 100%; }
-  @media only screen and (min-width: 1800px) {
+  @media only screen and (min-width: 1200px) {
     .events {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/hero-big.jpg); } }
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/hero-medium.jpg); } }
   @media only screen and (max-width: 900px) {
     .events {
       background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/hero-small.jpg); } }
@@ -623,7 +623,7 @@ span {
   align-items: center; }
   .modal__window {
     height: 52rem;
-    max-width: 84rem;
+    width: 84rem;
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 2rem;
     display: flex;
@@ -680,7 +680,7 @@ span {
     color: black !important; }
 
 .landing {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(img/hero-main.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(img/hero-big.jpg);
   background-position: right;
   background-repeat: no-repeat;
   height: 100vh;
@@ -688,9 +688,6 @@ span {
   display: flex;
   flex-direction: column;
   justify-content: space-between; }
-  @media only screen and (min-width: 2000px) {
-    .landing {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(img/hero-big.jpg); } }
   @media only screen and (max-width: 1200px) {
     .landing {
       background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(img/hero-medium.jpg); } }
